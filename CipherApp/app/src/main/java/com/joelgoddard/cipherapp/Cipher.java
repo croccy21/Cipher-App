@@ -1,5 +1,7 @@
 package com.joelgoddard.cipherapp;
 
+import android.util.Log;
+
 import java.text.MessageFormat;
 
 /**
@@ -23,25 +25,27 @@ public class Cipher {
     }
 
     public Cipher(String serialCode){
-        if(serialCode.startsWith("Cipher{") && serialCode.endsWith("}")) {
-            String code = serialCode.substring(serialCode.indexOf('{'), serialCode.indexOf('}'));
+        if(serialCode.startsWith("Cipher[") && serialCode.endsWith("]")) {
+            String code = serialCode.substring(serialCode.indexOf('[')+1, serialCode.indexOf(']'));
             String[] arguments = code.split(",");
             for (String arg:arguments){
                 String[] split = arg.split(":");
                 String var = split[0];
                 String val = split[1];
+                Log.d("Debug", arg+") "+var+":"+val);
                 switch (var){
                     case "name": name=val;break;
                     case "type": type=val;break;
                     case "description": description=val;break;
-                    case "mode0":availableModes[0]=Boolean.getBoolean(val);break;
-                    case "mode1":availableModes[1]=Boolean.getBoolean(val);break;
-                    case "mode2":availableModes[2]=Boolean.getBoolean(val);break;
-                    case "rating":securityRating=Integer.getInteger(val);break;
+                    case "mode0":availableModes[0]=Boolean.valueOf(val);break;
+                    case "mode1":availableModes[1]=Boolean.valueOf(val);break;
+                    case "mode2":availableModes[2]=Boolean.valueOf(val);break;
+                    case "rating":securityRating=Integer.valueOf(val);break;
                     case "insecure":possiblyInsecure=Boolean.getBoolean(val);break;
                 }
             }
         }
+        Log.d("Debug", serialize());
     }
 
     public String encipher(String plain, CipherData data){
@@ -84,6 +88,10 @@ public class Cipher {
         return availableModes;
     }
 
+    public boolean getAvailableMode(int index){
+        return availableModes[index];
+    }
+
     public void setAvailableModes(boolean[] availableModes) {
         this.availableModes = availableModes;
     }
@@ -105,7 +113,7 @@ public class Cipher {
     }
 
     public String serialize(){
-        return MessageFormat.format("Cipher{name:{0},type:{1},description:{2},mode0:{3},mode1:{4},mode2:{5}],rating:{6},insecure:{}}",
+        return MessageFormat.format("Cipher[name:{0},type:{1},description:{2},mode0:{3},mode1:{4},mode2:{5},rating:{6},insecure:{}]",
                 name, type, description, availableModes[CIPHER_ENCODE], availableModes[CIPHER_DECODE], availableModes[CIPHER_AUTO_SOLVE],
                 securityRating, possiblyInsecure);
     }

@@ -6,4 +6,7 @@
     <string name="symbol_decryption">D</string>
     <string name="symbol_auto_solve">S</string>
     <string name="default_cipher_type">Type</string>
+    <string name="title_activity_cipher_list">CipherList</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>
