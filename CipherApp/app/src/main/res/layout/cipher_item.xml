@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="end"
+    android:padding="8dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/mode_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/display_encryption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/symbol_encryption"
+            android:textSize="24sp"
+            android:textColor="#40A040"
+            android:textStyle="bold"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"/>
+        <TextView
+            android:id="@+id/display_decryption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/symbol_decryption"
+            android:textSize="24sp"
+            android:textColor="#A04040"
+            android:textStyle="bold"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"/>
+        <TextView
+            android:id="@+id/display_auto_solve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/symbol_auto_solve"
+            android:textSize="24sp"
+            android:textColor="#4040A0"
+            android:textStyle="bold"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/cipher_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_toStartOf="@id/mode_holder"
+        android:layout_toEndOf="@id/cipher_rating"
+        android:text="@string/default_cipher_name"
+        android:textSize="24sp"
+        android:textColor="#505050"
+        />
+
+    <TextView
+        android:id="@+id/cipher_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/cipher_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/default_cipher_description"
+        android:textSize="20sp"
+        android:textColor="#707070"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_below="@id/cipher_name"
+        android:layout_toEndOf="@id/cipher_rating"
+        android:layout_marginTop="8dp"/>
+
+    <ImageView
+        android:id="@+id/cipher_warning_image"
+        android:layout_width="wrap_content"
+        android:layout_height="18sp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/cipher_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cipher_description"
+        android:text="This Cipher May Not Be Secure"
+        android:textColor="#A0A040"
+        android:textSize="18sp"
+        android:visibility="gone"/>
+
+</RelativeLayout>

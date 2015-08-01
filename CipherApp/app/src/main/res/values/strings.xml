@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Cipher App</string>
+    <string name="default_cipher_name">Cipher Name</string>
+    <string name="default_cipher_description">A description of the cipher should go here</string>
+    <string name="symbol_encryption">E</string>
+    <string name="symbol_decryption">D</string>
+    <string name="symbol_auto_solve">S</string>
+</resources>
