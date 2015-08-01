@@ -5,4 +5,5 @@
     <string name="symbol_encryption">E</string>
     <string name="symbol_decryption">D</string>
     <string name="symbol_auto_solve">S</string>
+    <string name="default_cipher_type">Type</string>
 </resources>
