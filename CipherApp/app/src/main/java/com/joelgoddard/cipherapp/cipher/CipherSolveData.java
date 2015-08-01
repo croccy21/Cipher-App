@@ -1,4 +1,4 @@
-package com.joelgoddard.cipherapp;
+package com.joelgoddard.cipherapp.cipher;
 
 /**
  * Created by Joel Goddard on 01/08/2015.

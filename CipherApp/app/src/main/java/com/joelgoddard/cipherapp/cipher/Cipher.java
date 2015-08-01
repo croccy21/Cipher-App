@@ -1,4 +1,4 @@
-package com.joelgoddard.cipherapp;
+package com.joelgoddard.cipherapp.cipher;
 
 import android.util.Log;
 

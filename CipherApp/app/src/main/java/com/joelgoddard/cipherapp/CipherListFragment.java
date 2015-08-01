@@ -8,11 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
 
+import com.joelgoddard.cipherapp.cipher.Cipher;
 import com.joelgoddard.cipherapp.dummy.DummyContent;
 
 import java.util.ArrayList;
