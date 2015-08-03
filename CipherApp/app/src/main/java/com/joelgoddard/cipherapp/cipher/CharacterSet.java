@@ -6,6 +6,7 @@ package com.joelgoddard.cipherapp.cipher;
 public class CharacterSet {
     protected String plain;
     protected String cipher;
+    protected int length;
 
     public CharacterSet(String plain, String cipher){
         if(plain.length()==cipher.length()){
@@ -51,5 +52,28 @@ public class CharacterSet {
 
     public char getCorrespondingPlain(char cipherChar){
         return plain.charAt(cipher.indexOf(cipherChar));
+    }
+
+    public char getRelative(char c, int diff, boolean switchSet){
+        boolean usePlain;
+        int index = plain.indexOf(c);
+        if(index==-1){
+            index = cipher.indexOf(c);
+            if(index==-1){
+                return 0;
+            }
+            usePlain = !switchSet;
+
+        }
+        else{
+            usePlain = switchSet;
+        }
+        int newIndex = (index+diff)%length;
+        if(usePlain){
+            return plain.charAt(newIndex);
+        }
+        else{
+            return cipher.charAt(newIndex);
+        }
     }
 }

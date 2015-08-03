@@ -19,6 +19,7 @@ public class Cipher {
     protected boolean[] availableModes = new boolean[3];
     protected int securityRating;
     protected boolean possiblyInsecure;
+    protected CharacterSet characterSet;
 
     public Cipher(){
 
@@ -116,5 +117,13 @@ public class Cipher {
         return MessageFormat.format("Cipher[name:{0},type:{1},description:{2},mode0:{3},mode1:{4},mode2:{5},rating:{6},insecure:{}]",
                 name, type, description, availableModes[CIPHER_ENCODE], availableModes[CIPHER_DECODE], availableModes[CIPHER_AUTO_SOLVE],
                 securityRating, possiblyInsecure);
+    }
+
+    public CharacterSet getCharacterSet() {
+        return characterSet;
+    }
+
+    public void setCharacterSet(CharacterSet characterSet) {
+        this.characterSet = characterSet;
     }
 }
