@@ -18,9 +18,21 @@ public class CipherCeasar extends Cipher {
         if(data instanceof CipherShift) {
             char[] plainLetters = plain.toCharArray();
             for (char letter : plainLetters) {
-
+                cipher += characterSet.getRelative(letter, ((CipherShift) data).shift, true);
             }
         }
         return cipher;
+    }
+
+    @Override
+    public String decipher(String cipher, CipherData data) {
+        String plain = "";
+        if (data instanceof CipherShift) {
+            char[] cipherLetters = plain.toCharArray();
+            for (char letter : cipherLetters) {
+                plain += characterSet.getRelative(letter, -((CipherShift) data).shift, true);
+            }
+        }
+        return plain;
     }
 }
